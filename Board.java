@@ -127,7 +127,33 @@ public class Board{
 
   }
 
-  ststic public void turnLeftUp(int x, int y){
-    
+  static public void turnLeftUp(int x, int y) {
+    if (y > 1 && x > 1) {
+
+      // となりの駒
+      String next = board[y - 1][x - 1];
+
+      // となりの駒が裏駒の場合
+      if (next.equals(rev_stone)) {
+
+        // さらにその一つとなりから順に確認
+        for (int i = 2; true; i++) {
+
+          if (x - i < 0 || y - i < 0 || board[y - i][x - i].equals(EMPTY)) {
+            // 駒がない場合終了
+            break;
+          } else if (board[y - i][x - i].equals(stone)) {
+            // 自駒の場合
+
+            // あいだの駒をすべて自駒にひっくりかえす
+            for (int t = 1; t < i; t++) {
+              // 配列の要素を上書き
+              board[y - t][x - t] = stone;
+            }
+            break;
+          }
+        }
+      }
+    }
   }
 }
