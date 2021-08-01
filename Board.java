@@ -54,6 +54,9 @@ public class Board{
 
     for(String[] sarr :board){
 
+      System.out.print(i + " |");
+      for (String s : sarr) {
+
       System.out.println(s);
       System.out.println("|");
 
@@ -71,5 +74,33 @@ public class Board{
     System.out.println("――――――――――――――");
 
     i++;
+  }
+
+    System.out.println(BLACK + ":" + cnt_black);
+    System.out.println(WHITE + ":" + cnt_white);
+    System.out.println("――――――――――――――");
+
+    if(existempty){
+      System.out.println(stone + "のターンです！");
+    }else{
+      System.out.println(stone + "ゲーム終了！");
+      game = false;
+    }
+  }
+
+  static public void setStone(int x, int y){
+
+    //番外の座標を指定した場合
+    if(board[y][x].equals(EMPTY)){
+      board[y][x] = stone;
+
+      //ひっくり返す処理
+      turnStone(x,y);
+
+      //次打つ駒の設定
+      String next_rev_stone = stone;
+      stone = rev_stone;
+      rev_stone = new_rev_stone;
+    }
   }
 }
