@@ -101,6 +101,33 @@ public class Board{
       String next_rev_stone = stone;
       stone = rev_stone;
       rev_stone = new_rev_stone;
+
+      //オセロ版の描写
+      showBoard();
+
+    } else {
+
+      //既に駒がおいてある位置を指定した場合
+      System.out.println("その位置に駒はおけません");
     }
+  }
+
+  static public void turnStone(int x, int y){
+
+    //8方向に駒の配置を確認し、ひっくり返す
+
+    turnLeftUp(x,y);
+    turnUp(x,y);
+    turnRightUp(x,y);
+    turnLeft(x,y);
+    turnRight(x, y);
+    turnLeftDown(x,y);
+    turnDown(x,y);
+    turnRightDown(x,y);
+
+  }
+
+  ststic public void turnLeftUp(int x, int y){
+    
   }
 }
