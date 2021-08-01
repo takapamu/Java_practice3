@@ -47,5 +47,29 @@ public class Board{
     //白い駒の数集計用
     int cnt_white = 0;
     
+    //オセロを描写する
+    int i = 0;
+    System.out.println(" |0 |1 |2 |3 |4 |5 |6 |7 |");
+    System.out.println("――――――――――――――");
+
+    for(String[] sarr :board){
+
+      System.out.println(s);
+      System.out.println("|");
+
+      //空いている座標があるか、各駒数の集計
+      if(s.equals(EMPTY)){
+        existempty = true;
+      }else if(s.equals(BLACK)){
+        cnt_black++;
+      }else if(s.equals(WHITE)){
+        cnt_white++;
+      }
+    }
+
+    System.out.println();
+    System.out.println("――――――――――――――");
+
+    i++;
   }
 }
